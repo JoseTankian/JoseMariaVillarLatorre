@@ -6,14 +6,12 @@ public class Generador : MonoBehaviour {
     public float maximo = 1f; // Límite por la izquierda del generador
     public float tiempo = 2f; // Tiempo entre enemigos
     public GameObject enemigo; // Enemigo a generar
-	public Vector2 fuerza = new Vector2(0,-1000);
-	Rigidbody2D rg;
+
 
     private float siguiente_enemigo = 0;
 	
 	void Start () {
         siguiente_enemigo = tiempo;
-		rg = GetComponent<Rigidbody2D> ();
 	}
 	
 	
@@ -24,7 +22,6 @@ public class Generador : MonoBehaviour {
             siguiente_enemigo = Time.time + tiempo;
             Instantiate(enemigo, posicion, transform.rotation);
 
-			rg.AddForce(fuerza);
 
         }
 	}
